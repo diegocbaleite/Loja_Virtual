@@ -18,7 +18,7 @@ session_start();
     </header>
 
     <section class="checkout">
-        <form action="submit_order.php" method="post">
+        <form action="enviar_pedido.php" method="post">
             <div class="form-group">
                 <label for="nome">Nome Completo</label>
                 <input type="text" name="nome" id="nome" required>
