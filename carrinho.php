@@ -3,8 +3,18 @@ session_start();
 include 'config.php';
 
 $carrinho = isset($_SESSION['carrinho']) ? $_SESSION['carrinho'] : array();
-
 $total = 0;
+
+// Verifica se a solicitação é para remover um item
+if (isset($_GET['remove'])) {
+    $id = intval($_GET['remove']);
+    if (isset($carrinho[$id])) {
+        unset($carrinho[$id]);
+        $_SESSION['carrinho'] = $carrinho;
+        header('Location: carrinho.php');
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +23,7 @@ $total = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho - Loja Virtual</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 
@@ -32,6 +42,7 @@ $total = 0;
                         <th>Produto</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,11 +59,12 @@ $total = 0;
                             <td>' . $produto['nome'] . '</td>
                             <td>' . $quantidade . '</td>
                             <td>R$ ' . number_format($precoTotal, 2, ',', '.') . '</td>
+                            <td><a href="carrinho.php?remove=' . $id . '" class="btn">Remover</a></td>
                         </tr>';
                     }
                     ?>
                     <tr>
-                        <td colspan="2">Total</td>
+                        <td colspan="3">Total</td>
                         <td>R$ <?php echo number_format($total, 2, ',', '.'); ?></td>
                     </tr>
                 </tbody>

@@ -1,0 +1,14 @@
+loja_virtual
+
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    descricao TEXT,
+    preco DECIMAL(10, 2),
+    imagem VARCHAR(255)
+);
+
+INSERT INTO produtos (nome, descricao, preco, imagem) VALUES
+('Camiseta Infantil', 'Camiseta de algodão confortável', 29.99, 'camiseta.jpg'),
+('Vestido Infantil', 'Vestido para ocasiões especiais', 49.99, 'vestido.jpg'),
+('Calça Infantil', 'Calça jeans moderna', 39.99, 'calca.jpg');
