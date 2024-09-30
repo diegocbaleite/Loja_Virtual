@@ -25,11 +25,12 @@ if ($result->num_rows > 0) {
 
     <header>
         <h1><?php echo $produto['nome']; ?></h1>
-        <a href="cart.php">Carrinho</a>
+        <a href="carrinho.php">Carrinho</a>
     </header>
 
     <section class="produto-detalhes">
-        <img src="assets/img/camisa.jpg echo $produto['imagem']; ?>" alt="<?php echo $produto['nome']; ?>">
+        <img src="assets/img/<?php echo $produto['imagem']; ?>" alt="<?php echo $produto['nome']; ?>">
+        <img src="assets/img/camisa.jpg" alt="">
         <p><?php echo $produto['descricao']; ?></p>
         <p>Preço: R$ <?php echo $produto['preco']; ?></p>
         <a href="add_ao_carrinho.php?id=<?php echo $produto['id']; ?>" class="btn">Adicionar ao Carrinho</a>
@@ -37,3 +38,4 @@ if ($result->num_rows > 0) {
 
 </body>
 </html>
+

@@ -30,7 +30,7 @@
                         <h3>' . $row['nome'] . '</h3>
                         <p>' . $row['descricao'] . '</p>
                         <p>R$ ' . $row['preco'] . '</p>
-                        <a href="product.php?id=' . $row['id'] . '">Ver Detalhes</a>
+                        <a href="produtos.php?id=' . $row['id'] . '">Ver Detalhes</a>
                         <a href="add_ao_carrinho.php?id=' . $row['id'] . '" class="btn">Comprar</a>
                     </div>';
                 }
